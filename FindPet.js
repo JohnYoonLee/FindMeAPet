@@ -64,7 +64,7 @@ const showAge = (PetArray) => {
     
     alldogs.forEach((alldogs) => {    
         if(PetTime >= parseInt(alldogs.age))
-            str += alldogs.dogname + ", ";
+            str += alldogs.dogname + "is a, " + alldogs.breed + "and is " + alldogs.age + " years old. ";
 
     });
 let doglist = document.querySelector(".selectedPetAge")
