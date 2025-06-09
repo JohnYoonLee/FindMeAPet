@@ -58,16 +58,24 @@ const alldogs = [
 
 const showAge = (PetArray) => {
     let str = ""
+    let selectedDogs = [];
     let PetTime = document.querySelector("#PetAge").value;
     PetTime =  parseInt(PetTime) - 1;
     console.log(PetTime);
     
     alldogs.forEach((alldogs) => {    
-        if(PetTime >= parseInt(alldogs.age))
-            str += alldogs.dogname + "is a, " + alldogs.breed + "and is " + alldogs.age + " years old. ";
-
+        if(PetTime <= parseInt(alldogs.age))
+          selectedDogs.push({
+            dogname: alldogs.dogname,
+            breed: alldogs.breed,
+            age: alldogs.age
+        })
     });
-let doglist = document.querySelector(".selectedPetAge")
+
+    selectedDogs.forEach((selectedDogs) => {
+        str += `${selectedDogs.dogname} is a ${selectedDogs.breed} that is ${selectedDogs.age} years old.`
+    })
+    let doglist = document.querySelector(".selectedPetAge")
 doglist.textContent = str
 }
 
